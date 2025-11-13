@@ -121,3 +121,54 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+LOGGING={
+    "version": 1,
+    "disable_existing_loggers": False,   # 파이썬 기본 로거 끄지 않음
+
+    "formatters": {
+        "verbose": {
+            "format": (
+                "[{levelname}] {asctime} proc:{process} thread:{threadName}\n"
+                "{pathname}:{lineno}:{funcName}\n"
+                "{message}"
+            ),
+            "style": "{",
+        },
+        },
+
+        "handlers": {
+            "file": {
+                "level": "INFO",
+                "class": "logging.handlers.RotatingFileHandler",
+                "filename": f"{BASE_DIR}/app.log", 
+                "maxBytes": 5*1024*1024, 
+                "backupCount": 5,          
+                "encoding": "utf8",
+                "formatter": "verbose"
+            },
+        },
+
+    "root": {  # 최상위 로거
+        "handlers": ["file"],
+        "level": "DEBUG",
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["file"],
+            "level": "INFO",
+            "propagate": False,
+        },
+        "myapp": {
+            "handlers": ["file"],
+            "level": "INFO",
+            "propagate": False,
+        },
+    },
+}
+
+MONGODB_HOST = 'mongodb://localhost:27018/'
+REDIS_HOST = 'localhost'
+REDIS_PORT = 6379
