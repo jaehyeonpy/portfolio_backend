@@ -14,9 +14,10 @@ from core.util import *
 
 
 
-# NOTE:
-# a try-except statement is implemented,
-# unless an letting error-causing statement occur an error is effective.
+# Django does not provide a built-in view class returning an json, but only templates,
+# it is the only way to make a view returning an json that inherits the basic view class.
+
+
 
 myapp_logger = logging.getLogger("myapp")
 
