@@ -62,17 +62,15 @@ class VideoPersonalityFetchViewWithRedisConnectionpool(View):
 				p.hset(video_personality_doc["_id"], mapping=video_personality_doc)
 				p.expire(video_personality_doc["_id"], time=60)     
 				p.execute()
-				
+
 				myapp_logger.info(f'a cache set:\n{prettifed_doc}')
+				p.unwatch()
+				return JsonResponse(video_personality_doc, json_dumps_params={"ensure_ascii": False})
 
 			except Exception as e:
 				myapp_logger.exception(f'error:\n{e}')
-
-			finally:
-				p.unwatch()     
-
-
-		return JsonResponse(video_personality_doc, json_dumps_params={"ensure_ascii": False})
+				p.unwatch()
+				return JsonResponse(video_personality_doc, json_dumps_params={"ensure_ascii": False})
 	
 
 
