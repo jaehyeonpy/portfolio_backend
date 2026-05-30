@@ -58,7 +58,7 @@ avg of elapsed_time_list: 0.0034832667410373687
 
 # a concurrent write lock conflict log on redis 
 
-[INFO] 2026-05-28 09:15:25,838 proc:20975 thread:Thread-1
+[INFO] 2026-05-29 15:05:29,520 proc:56930 thread:Thread-2
 /Users/user/my_projects/test/portfolio_backend/core/views.py:51:get
 fetched from mongodb:
 {
@@ -66,20 +66,20 @@ fetched from mongodb:
     "subtitle": "3:28:01\n않을까요? 짠. 아 사장님 한 자치하셔만 열고자\n3:28:08\n짠 파이팅 짠 저희는 공겜이 좋아서 보러온게 아니고..."
     "video_personality": "겁이 많고 쉽게 긴장하는 성격\n* 반복적으로 *“오케이 진짜 갈게요”*라고 말하면서도 실제로 나가지 못하고 주저하는 모습이 드러남.\n*..."
 }
-[INFO] 2026-05-28 09:15:25,839 proc:20975 thread:Thread-1
-/Users/user/my_projects/test/portfolio_backend/core/views.py:62:get
-a cache set:
+[INFO] 2026-05-29 15:05:29,520 proc:56930 thread:Thread-1
+/Users/user/my_projects/test/portfolio_backend/core/views.py:51:get
+fetched from mongodb:
 {
     "_id": "LrYMUPsjtRw",
     "subtitle": "3:28:01\n않을까요? 짠. 아 사장님 한 자치하셔만 열고자\n3:28:08\n짠 파이팅 짠 저희는 공겜이 좋아서 보러온게 아니고..."
     "video_personality": "겁이 많고 쉽게 긴장하는 성격\n* 반복적으로 *“오케이 진짜 갈게요”*라고 말하면서도 실제로 나가지 못하고 주저하는 모습이 드러남.\n*..."
 }
-[ERROR] 2026-05-28 09:15:25,839 proc:20975 thread:Thread-2
-/Users/user/my_projects/test/portfolio_backend/core/views.py:65:get
+[ERROR] 2026-05-29 15:05:29,521 proc:56930 thread:Thread-2
+/Users/user/my_projects/test/portfolio_backend/core/views.py:71:get
 error:
 Watched variable changed.
 Traceback (most recent call last):
-  File "/Users/user/my_projects/test/portfolio_backend/core/views.py", line 60, in get
+  File "/Users/user/my_projects/test/portfolio_backend/core/views.py", line 64, in get
     p.execute()
   File "/Users/user/my_projects/test/portfolio_backend/venv/lib/python3.9/site-packages/redis/client.py", line 1688, in execute
     return conn.retry.call_with_retry(
@@ -90,6 +90,14 @@ Traceback (most recent call last):
   File "/Users/user/my_projects/test/portfolio_backend/venv/lib/python3.9/site-packages/redis/client.py", line 1563, in _execute_transaction
     raise WatchError("Watched variable changed.")
 redis.exceptions.WatchError: Watched variable changed.
+[INFO] 2026-05-29 15:05:29,521 proc:56930 thread:Thread-1
+/Users/user/my_projects/test/portfolio_backend/core/views.py:66:get
+a cache set:
+{
+    "_id": "LrYMUPsjtRw",
+    "subtitle": "3:28:01\n않을까요? 짠. 아 사장님 한 자치하셔만 열고자\n3:28:08\n짠 파이팅 짠 저희는 공겜이 좋아서 보러온게 아니고..."
+    "video_personality": "겁이 많고 쉽게 긴장하는 성격\n* 반복적으로 *“오케이 진짜 갈게요”*라고 말하면서도 실제로 나가지 못하고 주저하는 모습이 드러남.\n*..."
+}
 ```
 
 
