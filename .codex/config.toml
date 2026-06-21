@@ -1,0 +1,10 @@
+approval_policy = "untrusted"
+sandbox_mode = "workspace-write" # web_search set as cached if not explicitly set.
+
+model = "gpt-5.4"
+model_reasoning_effort = "medium"
+model_reasoning_summary = "auto"
+
+log_dir = "/home/park/codex_proj/portfolio_backend/codex_logs"
+
+allow_login_shell = false # optional hardening: disallow login shells for shell-based tools
