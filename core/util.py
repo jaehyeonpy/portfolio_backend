@@ -5,10 +5,6 @@ import json
 
 
 
-# NOTE:
-# a try-except statement is implemented,
-# unless an letting error-causing statement occur an error is effective.
-
 myapp_logger = logging.getLogger("myapp")
 
 
