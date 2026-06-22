@@ -24,20 +24,7 @@ public class MessagePrettifier {
                 MYAPP_LOGGER.error("an error occured. returning the msg as it is.", e);
             } else if ("printingToConsole".equals(errorPrintMode)) {
                 System.out.println("an error occured. returning the msg as it is.");
-
-                Throwable current = e;
-                while (current != null) {
-                    System.out.println(current);
-
-                    for (StackTraceElement element : current.getStackTrace()) {
-                        System.out.println("\tat " + element);
-                    }
-
-                    current = current.getCause();
-                    if (current != null) {
-                        System.out.println("Caused by:");
-                    }
-                }
+                e.printStackTrace(System.out);
             }
 
             return data;
